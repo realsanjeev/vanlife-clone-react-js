@@ -1,0 +1,588 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff7ed;
+    font-family: "Inter", sans-serif;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 2px;
+}
+header .site-logo{
+    color: black;
+    margin-right: auto;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 25px;
+}
+header a{
+    text-decoration: none;
+    color: #4d4d4d;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+header a:hover{
+    color: #161616;
+    text-decoration: underline;
+}
+
+header .login-icon {
+    height: 18px;
+    width: 18px;
+}
+
+header .login-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+.home-container {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.46)), url("./Images/home-hero.jpg") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 350px;
+    color: white;
+    padding: 45px 23px;
+}
+.home-container h1{
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 42px;
+}
+.home-container p{
+    line-height: 24px;
+}
+.home-container a{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #ff8c38;
+    border: none;
+    width: 100%;
+    margin-top: 27px;
+    padding-block: .75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform .1s ease-in-out;
+}
+.home-container a:hover{
+    transform: translate(1px, 1px);
+}
+
+/*** ABOUT PAGE ***/
+.about-hero-image{
+    max-width: 100%;
+}
+.about-page-content{
+    padding-inline: 23px;
+    color: #161616;
+    margin-bottom: 55px;
+}
+.about-page-content h1{
+    line-height: 38px;
+}
+.about-hero-image p{
+    line-height: 27px;
+}
+
+.about-page-cta {
+    background-color: #FFCC8D;
+    color: #161616;
+    padding-inline: 32px;
+    padding-bottom: 32px;
+    margin-inline: 27px;
+    border-radius: 5px;
+}
+
+.about-page-cta h2 {
+    margin: 0;
+    padding-block: 37px;
+}
+
+.about-page-cta .link-button {
+    background-color: #161616;
+    color: white;
+    border-radius: 10px;
+}
+.link-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: .75rem 1.375rem;
+    color: initial;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .1s ease-in-out;
+}
+
+.link-button:hover {
+    transform: translate(1px, 1px);
+}
+.footer {
+    margin-top: 10px;
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    background-color: #4d4d4d;
+    color: wheat;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+}
+
+/* vans page */
+
+.van-list-container {
+    padding-inline: 23px
+}
+
+.van-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 34px;
+    margin-top: 57px;
+}
+
+.van-tile a {
+    color: #161616;
+    text-decoration: none;    
+}
+
+.van-tile img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.van-list-container button {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.van-type {
+    height: 34px;
+    padding: 6px 26px;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFEAD0;
+    color: #4D4D4D;
+    transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.van-type:hover {
+    color: #FFEAD0;
+}
+
+.van-type:focus {
+    outline: none;
+}
+
+.van-type.selected {
+    color: #FFEAD0;
+}
+
+.van-type.simple:hover, .van-type.simple.selected {
+    background-color: #E17654;
+}
+
+.van-type.rugged:hover, .van-type.rugged.selected {
+    background-color: #115E59;
+}
+
+.van-type.luxury:hover, .van-type.luxury.selected {
+    background-color: #161616;
+}
+
+.van-type.clear-filters {
+    margin-left: -20px;
+    height: 34px;
+    padding: 6px 26px;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    text-decoration: underline;
+    background-color: transparent;
+    color: #4D4D4D;
+}
+
+i[class*='van-type-'] {
+    padding: 7px 14px;
+}
+.van-container{
+    /* display:b; */
+    margin: 0px 15px;
+    padding-inline: 23px;
+    overflow-x: hidden;
+}
+.van-container img{
+    margin: 10px 5px;
+    width: 100%;
+    border-radius: 10%;
+}
+.host-nav-bar a{
+    padding: 10px 20px;
+    align-content: center;
+    justify-content: space-around
+}
+.host-nav-bar a {
+    text-decoration: none;
+}
+.host-nav-bar a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: orange;
+}
+.chosen{
+    text-decoration: underline;
+    color: red
+}
+.user-van-list{
+    display: flex;
+    padding: 23px;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+.user-van-list img {
+    width: 100px;
+}
+.user-van{
+    padding:10px;
+    margin: 10px;
+    border-radius: 5%;
+    display: flex;
+    background-color: white;;
+}
+.user-van-info {
+    display: inline-block;
+    margin-left: 10px;
+}
+.container{
+    display: flex;
+    margin:20px;
+}
+.container img{
+    margin-top: 10px;
+    display: flex;
+    height: 400px;
+}
+.main-container a{
+    text-decoration: none;
+}
+.brief-info{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10px;
+    justify-content: center
+}
+.element{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.nested-bar{
+    max-width: 400px;
+}
+.back-link {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+}
+/* Error Component */
+.err-container {
+    text-align: center;
+    font-family: monospace, "San Serif";
+    color: red;
+    text-transform: uppercase;
+    padding: 10px;
+    margin-top: 20px;
+}
+/* Not found Component */
+.not-found {
+    display: flex;
+    background-color: #4d4d4d;
+    flex-direction: column;
+    color: white;
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+}
+.not-found a {
+    text-decoration: none;
+}
+.btn-not {
+    width: 250px;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(255 169 0 / 1);
+    border-radius: 10px;
+    border-style: none;
+}
+.btn-not:hover{
+    box-shadow: 2px 3px;
+    cursor: pointer;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 27px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;    
+}
+
+.login-form > input {
+    border: 1px solid rgba(209, 213, 219);
+    height: 40px;
+    text-indent: 10px;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+}
+
+.login-form > input:focus {
+    outline: none;
+}
+
+.login-form > input:first-of-type {
+    border-radius: 6px 6px 0px 0px;
+}
+
+.login-form > input:last-of-type {
+    border-radius: 0px 0px 6px 6px;
+    border-top: none;
+}
+
+.login-form > button {
+    background-color: #FF8C38;
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    margin-top: 22px;
+    color: white;
+    font-family: "Inter", sans-serif;
+}
+.red{
+    color: red;
+}
+
+.host-dashboard-earnings {
+    background-color: #ffead0;
+    padding: 37px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.host-dashboard-earnings > .info > h1 {
+    font-size: 36px;
+    color: #161616;
+    margin: 0;
+}
+
+.host-dashboard-earnings > .info > p {
+    color: #4d4d4d;
+}
+
+.host-dashboard-earnings > .info > p > span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-dashboard-earnings > .info > h2 {
+    margin: 0;
+    font-size: 38px;
+    color: #161616;
+    font-weight: 900;
+}
+
+.host-dashboard-reviews {
+    background-color: #ffddb2;
+    padding: 25px 26px;
+    display: flex;
+    align-items: center;
+}
+
+.host-dashboard-reviews > h2 {
+    margin: 0;
+}
+
+.host-dashboard-reviews .star {
+    color: #ff8c38;
+    margin-left: 15px;
+    font-size: 25px;
+}
+
+.host-dashboard-reviews p {
+    margin-left: 5px;
+    font-size: 20px;
+    color: #4d4d4d;
+    margin-right: auto;
+}
+
+.host-dashboard-reviews p > span {
+    font-weight: bold;
+    color: #161616;
+}
+
+.host-dashboard-vans {
+    padding: 38px 26px;
+}
+
+.host-dashboard-vans > .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.host-dashboard-vans .host-vans-list {
+    padding-inline: 0;
+}
+
+.host-income {
+    padding-inline: 26px;
+    color: #161616;
+}
+
+.host-income > p {
+    color: #4d4d4d;
+}
+
+.host-income > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-income > h2 {
+    font-size: 38px;
+    color: #161616;
+    font-weight: 900;
+}
+
+img.graph {
+    width: 100%;
+    max-width: 500px;
+}
+
+.host-income .info-header > p {
+    color: #4d4d4d;
+}
+
+.host-income .info-header > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-income .info-header > h3 {
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 60px;
+}
+
+.host-income .transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 31px;
+    padding: 35px 29px;
+    border-radius: 6px;
+}
+.host-income .transaction > h3 {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.host-income .transaction > p {
+    font-weight: 500;
+    font-size: 20px;
+    color: #4d4d4d;
+}
+
+.host-reviews {
+    padding-inline: 26px;
+    color: #161616;
+}
+
+.host-reviews .top-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.host-reviews .top-text > h2 {
+    font-weight: 700;
+    font-size: 32px;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.host-reviews .top-text > p {
+    margin: 0;
+    color: #4d4d4d;
+}
+
+.host-reviews .top-text > p span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.host-reviews > img {
+    margin-bottom: 36px;
+}
+
+.host-reviews .review {
+    margin-block: 25px;
+}
+
+.host-reviews .review .info {
+    display: flex;
+}
+
+.host-reviews .review .name {
+    color: #161616;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.host-reviews .review .date {
+    color: #8c8c8c;
+}
+
+.host-reviews hr {
+    background-color: #c7c7c7;
+    height: 1px;
+    border: 0;
+}
+
+.host-reviews .review-star {
+    color: #ff8c38;
+    margin-right: 5px;
+}
