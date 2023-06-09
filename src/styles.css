@@ -137,12 +137,12 @@ header .login-link {
 }
 .footer {
     margin-top: 10px;
-    position: inherit;
-    bottom: 0;
+    position: fixed;
+    bottom: 0px;
     width: 100%;
     background-color: #4d4d4d;
     color: wheat;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
     align-items: center;
 }
@@ -159,6 +159,7 @@ header .login-link {
     justify-items: center;
     gap: 34px;
     margin-top: 57px;
+    margin-bottom: 50px;
 }
 
 .van-tile a {
@@ -242,10 +243,11 @@ i[class*='van-type-'] {
 .host-nav-bar a{
     padding: 10px 20px;
     align-content: center;
-    justify-content: space-around
-}
-.host-nav-bar a {
+    justify-content: space-around;
     text-decoration: none;
+}
+.host-nav-bar {
+    margin-bottom: 10px;
 }
 .host-nav-bar a:hover {
     text-decoration: underline;

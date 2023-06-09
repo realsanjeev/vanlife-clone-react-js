@@ -1,4 +1,4 @@
-import "./server";
+import "./fake_server";
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";

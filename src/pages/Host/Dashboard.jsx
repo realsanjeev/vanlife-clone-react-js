@@ -47,7 +47,7 @@ export default function Dashboard() {
                 <p>
                     <span>5.0</span>/5
                 </p>
-                <Link to="reviews">Details</Link>
+                <Link to="review">Details</Link>
             </section>
             <section className="host-dashboard-vans">
                 <div className="top">
