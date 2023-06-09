@@ -8,6 +8,7 @@ import {
     query,
     where
 } from "firebase/firestore/lite"
+import "./fake_server"
 
 const firebaseConfig = {
   apiKey: "AIzaSyBw39nj5b-WfN43xR7udHqjrKBexZtX6LE",
