@@ -1,7 +1,14 @@
-import "./fake_server";
-
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import {
+    getFirestore,
+    collection,
+    doc,
+    getDocs,
+    getDoc,
+    query,
+    where
+} from "firebase/firestore/lite"
+
 const firebaseConfig = {
   apiKey: "AIzaSyBw39nj5b-WfN43xR7udHqjrKBexZtX6LE",
   authDomain: "vanlife-55caf.firebaseapp.com",
@@ -14,36 +21,36 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app)
 
+const vansCollectionRef = collection(db, "vans")
 
-export async function getVans(id) {
-    const url = id ? `/api/vans/${id}` : "/api/vans";
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw {
-            message: "Failed to fetch vans",
-            statusText: res.statusText,
-            status: res.status
-        }
-    }
-    const data = await res.json();
-    return data?.vans ? data.vans : null;
+export async function getVans() {
+    const querySnapshot = await getDocs(vansCollectionRef)
+    const dataArr = querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+    }))
+    return dataArr
 }
 
-export async function getHostVans(id) {
-    const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw {
-            message: "Failed to fetch vans",
-            statusText: res.statusText,
-            status: res.status,
-        }
+export async function getVan(id) {
+    const docRef = doc(db, "vans", id)
+    const vanSnapshot = await getDoc(docRef)
+    return {
+        ...vanSnapshot.data(),
+        id: vanSnapshot.id
     }
-    const data = await res.json();
-    console.log("data: ", data)
-    return data?.vans ? data.vans : null;
+}
+
+export async function getHostVans() {
+    const q = query(vansCollectionRef, where("hostId", "==", "123"))
+    const querySnapshot = await getDocs(q)
+    const dataArr = querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+    }))
+    return dataArr
 }
 
 export async function loginUser(creds) {

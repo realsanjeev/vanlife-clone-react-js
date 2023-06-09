@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation, useLoaderData, useParams, Await, defer } from "react-router-dom";
-import { getVans } from "../../api";
+import { getVan } from "../../api";
 
 export async function loader({ params }) {
-  return defer({vans: getVans(params.id)})
+  return defer({vans: getVan(params.id)})
 }
 export default function Van() {
   const params = useParams();

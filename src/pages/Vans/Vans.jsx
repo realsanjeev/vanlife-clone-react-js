@@ -14,7 +14,7 @@ export default function Vans() {
   function vansViewer(vans) {
     console.log(vans)
     const desiredVans = filterType
-      ? vans.filter((van) => van.type.toLowerCase() === filterType.toLowerCase())
+      ? vans.filter((van) => van.type === filterType.toLowerCase())
       : vans;
 
   
