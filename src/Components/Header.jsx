@@ -4,10 +4,10 @@ import accountAvatar from "../Images/user-avatar.png"
 import logOut from "../Images/log-out.png"
 
 export default function Header() {
-    const activeStyle = {
-        fontWeight: "bold",
-        color: "red"
-    }
+    // const activeStyle = {
+    //     fontWeight: "bold",
+    //     color: "red"
+    // }
 
     function handleLogOut(){
         localStorage.removeItem("isLoggedIn")
@@ -24,6 +24,7 @@ export default function Header() {
                     <img 
                         src={accountAvatar}
                         className="login-icon"
+                        alt="user-profile avatar"
                     />
                 </Link>
                 {localStorage.getItem("isLoggedIn") === "true" && 

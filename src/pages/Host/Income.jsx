@@ -1,5 +1,5 @@
 import React from "react"
-import {incomeImg} from "../../Images/income.jpg"
+import incomeImg from "../../Images/income.jpg"
 
 export default function Income() {
     const transactionsData = [
