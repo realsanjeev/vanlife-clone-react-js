@@ -1,25 +1,38 @@
-# Vanlife clone
-useParams returns parameter in url 
+# Vanlife Clone Overview
 
-for url: `localhost:8000\vans\:id` returns {id: 1}
+### `useParams` Hook
+The `useParams` hook retrieves URL parameters. For example, given the URL `localhost:8000/vans/:id`, it returns `{ id: 1 }`.
 
-`<Link to="path" state>` create a link bewtween pages. State 
+### `<Link>` Component
+The `<Link>` component creates navigation links between pages and can pass state between them:
 
-`useSearchParams` is used to get search element `localhost:8000\vans?type=simple&price=search`
-
-```
-const [searchParam, setSearchParam] = useSearchParams()
-const filterType = searchParam.get("type")   //return "simple"
-const filterComp = searchParam.toString()   // return "type=simple&price=search"
+```jsx
+<Link to="path" state={someState}>Link Text</Link>
 ```
 
-`redirect` doesnot wok with server imports of `miragejs` in `react-router-dom@6.11.*` but works fine in `react-router-dom@6.4.2`
+### `useSearchParams` Hook
+The `useSearchParams` hook is used to handle query parameters in the URL. For example, for the URL `localhost:8000/vans?type=simple&price=search`:
 
-### <Form> element
-`<Form>` element works in same way html dom delement works, so no need to keep track state as in react in virtal dom element.
+```javascript
+const [searchParams, setSearchParams] = useSearchParams();
+const filterType = searchParams.get("type");   // returns "simple"
+const filterString = searchParams.toString();  // returns "type=simple&price=search"
+```
 
-### URL method in native js
-`new URL(request.url)` returns URL object, we can access location, searchParams, params from ths native method
+### Redirect Issues
+`redirect` does not work with server imports of `miragejs` in `react-router-dom@6.11.*` but functions correctly in `react-router-dom@6.4.2`.
 
-### defer and <Await>
-`defer` is used to render HTML page before oder for better user experience
+### `<Form>` Element
+The `<Form>` element behaves like its native HTML counterpart, so you don't need to manage state as you would with React’s virtual DOM elements.
+
+### URL Methods in Native JavaScript
+The `new URL(request.url)` constructor returns a URL object, allowing access to properties like `location`, `searchParams`, and `params`.
+
+### `defer` and `<Await>`
+The `defer` keyword is used to render HTML content before order for a better user experience.
+
+### References
+- [React Router Dom - Documentation](https://reactrouter.com/en/main/start/overview)
+- [Miragejs - Documentation](https://miragejs.com/docs/getting-started/introduction/)
+- [Firebase - Documentation](https://firebase.google.com/docs/web/setup)
+- [React Icons - Documentation](https://react-icons.github.io/react-icons/)
