@@ -5,7 +5,7 @@ import { requireAuth } from "../../auth/utils"
 import { BsStarFill } from "react-icons/bs"
 
 export async function loader({ request }) {
-    await requireAuth({request})
+    await requireAuth({ request })
     return defer({ vans: getHostVans() })
 }
 

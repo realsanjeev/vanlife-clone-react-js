@@ -23,7 +23,7 @@ export default function Login() {
     setStatus("submitting")
     e.preventDefault();
     loginUser(userInfo)
-      .then(data=>console.log(data))
+      .then(data => console.log(data))
       .catch(err => setError(err))
       .finally(setStatus("idle"))
     console.log("Form Submitted");

@@ -8,7 +8,7 @@ import { loginUser } from "../api";
 
 export async function loader({ request }){
   const isLoggedIn = localStorage.getItem("isLoggedIn")
-  if (isLoggedIn==="true") {return redirect("/host")}
+  if (isLoggedIn==="true") { return redirect("/host") }
   return new URL(request.url).searchParams.get("message")
 }
 
@@ -19,7 +19,7 @@ export async function action({ request }) {
   const email = formData.get("email")
   const password = formData.get("password")
   try {
-    await loginUser({email, password})
+    await loginUser({ email, password })
     localStorage.setItem("isLoggedIn", true)
   return redirect(redirectUrl)
   } catch (error) {

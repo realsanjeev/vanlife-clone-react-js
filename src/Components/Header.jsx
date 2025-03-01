@@ -27,13 +27,18 @@ export default function Header() {
                         alt="user-profile avatar"
                     />
                 </Link>
-                {localStorage.getItem("isLoggedIn") === "true" && 
-                <Link to="/login?message=Log in to rent van"><img src={logOut} className="login-icon" 
-                alt="log-out symbol" onClick={handleLogOut} />
-                </Link>}
+                {localStorage.getItem("isLoggedIn") === "true" && (
+                    <Link to="/login?message=Log in to rent van">
+                        <img
+                            src={logOut}
+                            className="login-icon"
+                            alt="log-out symbol"
+                            onClick={handleLogOut}
+                        />
+                    </Link>
+                )}
             </nav>
         </header>
         </>
-
-    )
+    );
 }

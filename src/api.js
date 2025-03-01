@@ -61,6 +61,7 @@ export async function loginUser(creds) {
     const data = await res.json()
 
     if (!res.ok) {
+        // eslint-disable-next-line
         throw {
             message: data.message,
             statusText: res.statusText,

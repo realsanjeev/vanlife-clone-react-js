@@ -1,5 +1,18 @@
 # Vanlife Clone Overview
 
+## Getting Started
+If you're using npm as your package manager, simply replace `npm` with `bun`. Bun is significantly faster than npm.
+
+1. Install the dependencies:
+    ```bash
+    bun install
+    ```
+2. Start the webserver:
+    ```bash
+    bun run start
+    ```
+
+
 ### `useParams` Hook
 The `useParams` hook retrieves URL parameters. For example, given the URL `localhost:8000/vans/:id`, it returns `{ id: 1 }`.
 
@@ -32,6 +45,7 @@ The `new URL(request.url)` constructor returns a URL object, allowing access to 
 The `defer` keyword is used to render HTML content before order for a better user experience.
 
 ### References
+- [Bun Installation](https://bun.sh/docs/installation)
 - [React Router Dom - Documentation](https://reactrouter.com/en/main/start/overview)
 - [Miragejs - Documentation](https://miragejs.com/docs/getting-started/introduction/)
 - [Firebase - Documentation](https://firebase.google.com/docs/web/setup)

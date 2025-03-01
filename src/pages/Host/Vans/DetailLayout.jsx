@@ -4,8 +4,8 @@ import { getVan } from "../../../api";
 import { requireAuth } from "../../../auth/utils";
 
 export async function loader({ request, params }) {
-  await requireAuth({request});
-  return defer({vans: getVan(params.id)})
+  await requireAuth({ request });
+  return defer({ vans: getVan(params.id) })
 }
 
 export default function Detailayout() {
@@ -18,20 +18,22 @@ export default function Detailayout() {
   }
   function hostVanDetailViewer(hostVan) {
     return(
-      hostVan ? (<><div className="container">
-      <img src={hostVan.imageUrl} alt={`${hostVan.type} van`} />
+      hostVan ? (
+      <>
+      <div className="container">
+        <img src={hostVan.imageUrl} alt={`${hostVan.type} van`} />
       <div className="brief-info">
-      <i className={`van-type ${hostVan.type} selected element`}>{hostVan.type}</i>
-      <h2 className="element">{hostVan.name}</h2>
-      <h3 className="element">${hostVan.price} /day</h3>
+        <i className={`van-type ${hostVan.type} selected element`}>{hostVan.type}</i>
+        <h2 className="element">{hostVan.name}</h2>
+        <h3 className="element">${hostVan.price} /day</h3>
       </div>
-
     </div>
+
     <nav className="host-nav-bar nested-bar">
       <NavLink to="." end style={({isActive})=> isActive ? activeStyle: null}>Details</NavLink>
       <NavLink to="pricing" style={({isActive})=> isActive ? activeStyle: null}>Pricing</NavLink> 
       <NavLink to="photos" style={({isActive})=> isActive ? activeStyle: null}>Photos</NavLink>
-      </nav>
+    </nav>
     <Outlet context={hostVan}/>
 </>
   ) : (
