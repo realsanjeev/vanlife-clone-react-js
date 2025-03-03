@@ -1,17 +1,25 @@
 import React from "react"
-import { Link, defer, Await, useLoaderData } from "react-router-dom"
+import { Link, defer, Await, useLoaderData, Navigate } from "react-router-dom"
 import { getHostVans } from "../../api"
 import { requireAuth } from "../../auth/utils"
 import { BsStarFill } from "react-icons/bs"
 
 export async function loader({ request }) {
-    await requireAuth({ request })
+    const authRedirect = requireAuth({ request })
+    if (authRedirect) {
+        return { redirectTo: authRedirect }
+    }
     return defer({ vans: getHostVans() })
 }
 
 export default function Dashboard() {
     const loaderData = useLoaderData()
-    console.log(loaderData)
+
+    // Handle auth redirect
+    if (loaderData.redirectTo) {
+        return <Navigate to={loaderData.redirectTo} replace />
+    }
+
     function renderVanElements(vans) {
         const hostVansEls = vans.map((van) => (
             <div className="host-van-single" key={van.id}>

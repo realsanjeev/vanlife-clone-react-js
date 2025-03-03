@@ -3,7 +3,7 @@ import { Link, useSearchParams, useLoaderData, defer, Await } from "react-router
 import { getVans } from "../../api";
 
 export async function loader() {
-  return defer({vans: getVans()});
+  return defer({ vans: getVans() });
 }
 
 export default function Vans() {
@@ -12,17 +12,16 @@ export default function Vans() {
   const filterType = searchParams.get("type");
 
   function vansViewer(vans) {
-    console.log(vans)
     const desiredVans = filterType
       ? vans.filter((van) => van.type === filterType.toLowerCase())
       : vans;
 
-  
+
     const vanElements = desiredVans.map((van) => (
       <div key={van.id} className="van-tile">
-        <Link 
-          to={van.id} 
-          state={{ search: searchParams.toString()}}>
+        <Link
+          to={van.id}
+          state={{ search: searchParams.toString() }}>
           <img src={van.imageUrl} alt={`${van.type} van`} />
           <div className="van-info">
             <h3>{van.name}</h3>
@@ -31,8 +30,8 @@ export default function Vans() {
               <span>/day</span>
             </p>
           </div>
-  
-        <i className={`van-type ${van.type} selected`}>{van.type}</i>
+
+          <i className={`van-type ${van.type} selected`}>{van.type}</i>
         </Link>
       </div>
     ));
@@ -52,25 +51,22 @@ export default function Vans() {
         <div className="van-list-filter-buttons">
           <button
             onClick={() => handleFilter("type", "simple")}
-            className={`van-type simple ${
-              filterType === "simple" ? "selected" : ""
-            }`}
+            className={`van-type simple ${filterType === "simple" ? "selected" : ""
+              }`}
           >
             Simple
           </button>
           <button
             onClick={() => handleFilter("type", "rugged")}
-            className={`van-type rugged ${
-              filterType === "rugged" ? "selected" : ""
-            }`}
+            className={`van-type rugged ${filterType === "rugged" ? "selected" : ""
+              }`}
           >
             Rugged
           </button>
           <button
             onClick={() => handleFilter("type", "luxury")}
-            className={`van-type luxury ${
-              filterType === "luxury" ? "selected" : ""
-            }`}
+            className={`van-type luxury ${filterType === "luxury" ? "selected" : ""
+              }`}
           >
             Luxury
           </button>
@@ -93,10 +89,10 @@ export default function Vans() {
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
-      <React.Suspense fallback={<h1>Loding </h1>}>
-      <Await resolve={promisedVans.vans}>
-        {vansViewer}
-      </Await>
+      <React.Suspense fallback={<h1>Loading</h1>}>
+        <Await resolve={promisedVans.vans}>
+          {vansViewer}
+        </Await>
       </React.Suspense>
     </div>
   );

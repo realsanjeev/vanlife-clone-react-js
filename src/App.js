@@ -48,12 +48,10 @@ const router = createBrowserRouter(
           <Route
             path="income"
             element={<Income />}
-            loader={async ({ request }) => await requireAuth({ request })}
           />
           <Route
             path="review"
             element={<Review />}
-            loader={async ({ request }) => await requireAuth({ request })}
           />
           <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
 
@@ -65,17 +63,14 @@ const router = createBrowserRouter(
             <Route
               index
               element={<Details />}
-              loader={async ({ request }) => await requireAuth({ request })}
             />
             <Route
               path="pricing"
               element={<Pricing />}
-              loader={async ({ request }) => await requireAuth({ request })}
             />
             <Route
               path="photos"
               element={<Photos />}
-              loader={async ({ request }) => await requireAuth({ request })}
             />
           </Route>
         </Route>
