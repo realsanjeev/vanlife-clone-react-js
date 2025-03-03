@@ -49,36 +49,83 @@ If you're using npm as your package manager, simply replace `npm` with `bun`. Bu
 
 ## React Router Concepts
 
-### `useParams` Hook
-The `useParams` hook retrieves URL parameters. For example, given the URL `localhost:8000/vans/:id`, it returns `{ id: 1 }`.
+This project utilizes the data APIs introduced in React Router v6.4+. Here is a breakdown of the key concepts used:
 
-### `<Link>` Component
-The `<Link>` component creates navigation links between pages and can pass state between them:
+### 1. Data Loading (Loaders)
+Loaders allow you to fetch data *before* a route renders. This prevents "waterfall" loading states and ensures data is ready when the component mounts.
+
+-   **`loader` function**: Defined in the route definition. It receives `params` and `request` objects.
+-   **`useLoaderData` hook**: Accesses the data returned by the loader in the component.
 
 ```jsx
-<Link to="path" state={someState}>Link Text</Link>
+// Route definition
+<Route 
+  path="vans/:id" 
+  element={<VanDetail />} 
+  loader={async ({ params }) => {
+    return await getVan(params.id);
+  }} 
+/>
+
+// Component
+export default function VanDetail() {
+  const van = useLoaderData();
+  return <h1>{van.name}</h1>;
+}
 ```
 
-### `useSearchParams` Hook
-The `useSearchParams` hook is used to handle query parameters in the URL. For example, for the URL `localhost:8000/vans?type=simple&price=search`:
+### 2. Data Mutation (Actions)
+Actions handle form submissions and data mutations. They work with the HTML `<Form>` element (or React Router's `<Form>`) to handle standard HTTP methods (POST, PUT, DELETE).
 
-```javascript
-const [searchParams, setSearchParams] = useSearchParams();
-const filterType = searchParams.get("type");   // returns "simple"
-const filterString = searchParams.toString();  // returns "type=simple&price=search"
+-   **`action` function**: Handles the request.
+-   **`<Form>` component**: A wrapper around the native HTML form that prevents full page reloads and submits to the route's action.
+
+```jsx
+// Route definition
+<Route path="login" element={<Login />} action={loginAction} />
+
+// Component
+<Form method="post">
+  <input name="email" />
+  <input name="password" type="password" />
+  <button>Log in</button>
+</Form>
 ```
 
-### Redirect Issues
-`redirect` does not work with server imports of `miragejs` in `react-router-dom@6.11.*` but functions correctly in `react-router-dom@6.4.2`.
+### 3. Navigation & Hooks
+React Router provides several hooks to manage navigation and URL state.
 
-### `<Form>` Element
-The `<Form>` element behaves like its native HTML counterpart, so you don't need to manage state as you would with React's virtual DOM elements.
+-   **`useParams`**: Retrieves dynamic URL parameters (e.g., `:id`).
+    ```js
+    const { id } = useParams(); // { id: "123" }
+    ```
+-   **`useSearchParams`**: Manages query string parameters (e.g., `?type=simple`).
+    ```js
+    const [searchParams, setSearchParams] = useSearchParams();
+    const type = searchParams.get("type");
+    ```
+-   **`useLocation`**: Returns the current location object, useful for passing state between routes.
+-   **`useNavigate`**: Programmatically navigate to different routes.
+-   **`<Link>` & `<NavLink>`**: Components for declarative navigation. `<NavLink>` knows when it is active.
 
-### URL Methods in Native JavaScript
-The `new URL(request.url)` constructor returns a URL object, allowing access to properties like `location`, `searchParams`, and `params`.
+### 4. Route Structure
+-   **Nested Routes**: Routes can be nested inside parent routes. The parent renders the child using the `<Outlet />` component.
+-   **Layout Routes**: A parent route that provides a common UI (like a header/footer) for its children.
 
-### `defer` and `<Await>`
-The `defer` keyword is used to render HTML content before data loads for a better user experience.
+```jsx
+<Route path="host" element={<HostLayout />}>
+  <Route index element={<Dashboard />} />
+  <Route path="income" element={<Income />} />
+</Route>
+```
+
+### 5. Advanced Features
+-   **`defer` & `<Await>`**: Used for streaming data. You can defer slow data requests so the UI renders immediately with a loading state (via `<Suspense>`) while the data loads in the background.
+-   **`requireAuth`**: A custom utility (often used in loaders) to protect routes. If a user isn't logged in, it redirects them to the login page.
+-   **`errorElement`**: A component that renders if an error occurs during loading, action execution, or rendering.
+
+### 6. Utilities
+-   **`new URL(request.url)`**: A native JavaScript API often used in loaders to parse the URL and extract search parameters.
 
 ## References
 - [Bun Installation](https://bun.sh/docs/installation)
