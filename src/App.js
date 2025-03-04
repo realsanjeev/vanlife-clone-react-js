@@ -92,7 +92,10 @@ const router = createBrowserRouter(
       </Route>
       <Route path="*" element={<NotFound />} />
     </>
-  )
+  ),
+  {
+    basename: "/vanlife-clone-react-js", // <-- Add this
+  }
 );
 
 export default function App() {
