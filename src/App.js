@@ -33,7 +33,7 @@ import Pricing from "./pages/Host/Vans/Pricing";
 
 import "./styles.css";
 
-import { requireAuth } from "./auth/utils";
+// import { requireAuth } from "./auth/utils";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>

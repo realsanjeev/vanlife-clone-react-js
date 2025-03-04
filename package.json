@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "baseline-browser-mapping": "^2.9.5",
+    "caniuse-lite": "^1.0.30001759",
     "firebase": "^12.6.0",
     "miragejs": "^0.1.47",
     "react": "^18.2.0",
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
