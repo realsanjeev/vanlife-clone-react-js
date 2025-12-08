@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/vanlife-clone-react-js/static/css/main.246bbe4f.css",
-    "main.js": "/vanlife-clone-react-js/static/js/main.696ab512.js",
+    "main.js": "/vanlife-clone-react-js/static/js/main.b1810d40.js",
     "static/js/453.b7c082f1.chunk.js": "/vanlife-clone-react-js/static/js/453.b7c082f1.chunk.js",
     "static/media/about-hero.jpg": "/vanlife-clone-react-js/static/media/about-hero.56e42b7ba9a42e2695d9.jpg",
     "static/media/home-hero.jpg": "/vanlife-clone-react-js/static/media/home-hero.3301aea913cb55b94214.jpg",
@@ -11,11 +11,11 @@
     "static/media/user-avatar.png": "/vanlife-clone-react-js/static/media/user-avatar.61637315e740810e35de.png",
     "index.html": "/vanlife-clone-react-js/index.html",
     "main.246bbe4f.css.map": "/vanlife-clone-react-js/static/css/main.246bbe4f.css.map",
-    "main.696ab512.js.map": "/vanlife-clone-react-js/static/js/main.696ab512.js.map",
+    "main.b1810d40.js.map": "/vanlife-clone-react-js/static/js/main.b1810d40.js.map",
     "453.b7c082f1.chunk.js.map": "/vanlife-clone-react-js/static/js/453.b7c082f1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.246bbe4f.css",
-    "static/js/main.696ab512.js"
+    "static/js/main.b1810d40.js"
   ]
 }
